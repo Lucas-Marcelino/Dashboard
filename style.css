@@ -133,7 +133,7 @@ body
 .main
 {
     position: absolute;
-    width: calc(100% - 200px);
+    width: calc(100% - 300px);
     left: 300px;
     min-height: 100vh;
     background: var(--white);
@@ -157,7 +157,6 @@ body
     position: relative;
     width: 60px;
     height: 60px;
-    background: #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -182,5 +181,133 @@ body
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 } 
+
+.cardBox .card .numbers
+{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--blue);
+}
+
+.cardBox .card .cardName
+{
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBx
+{
+    font-size: 3.5em;
+    color: var(--black2);
+}
+
+.cardBox .card:hover
+{
+    background: var(--blue);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx
+{
+    color: var(--white);
+}
+
+.graphBox
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    min-height: 200px;
+}
+
+.graphBox .box
+{
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+@media (max-width: 991px)
+{
+    .graphBox
+    {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .navigation
+    {
+        left: -300px
+    }
+
+    .navigation.active
+    {
+        width: 300px;
+        left: 0;
+    }
+
+    .main
+    {
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active
+    {
+        left: 300px;
+    }
+
+    .cardBox
+    {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 468px)
+{
+    .cardBox
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .cardHeader h2
+    {
+        font-size: 20px;
+    }
+
+    .navigation
+    {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .navigation.active
+    {
+        width: 100%;
+        left: 0;
+    }
+
+    .toggle
+    {
+        z-index: 10001;
+    }
+
+    .main.active .toggle
+    {
+        position: fixed;
+        right: 0;
+        left: initial;
+        color: var(--white);
+    }
+}
